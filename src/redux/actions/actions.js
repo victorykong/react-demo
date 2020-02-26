@@ -1,11 +1,18 @@
-/**
- * 生成 action 的函数
- */
+let nextTodoId = 0;
 
-import * as types from '../constants/actionTypes';
+export const addTodo = text => ({
+    type: 'ADD_TODO',
+    id: nextTodoId++,
+    text
+})
 
-export const increMent = () => {
-    return {
-        type: types.INCREMENT
-    }
-}
+export const setVisibilityFilter = filter => ({
+    type: 'SET_VISIBILITY_FILTER',
+    filter
+})
+
+export const toggleTodo = id => ({
+    type: 'TOGGLE_TODO',
+    id
+})
+
