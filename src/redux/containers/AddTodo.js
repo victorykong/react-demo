@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions/actions'
+import { addTodo, addTodoThunk } from '../actions/actions'
 
 const AddTodo = props => {
     let input;
@@ -14,6 +14,8 @@ const AddTodo = props => {
                         return
                     }
                     props.dispatch(addTodo(input.value))
+                    // props.dispatch(addTodoThunk(input.value))
+
                     input.value = ''
                 }}
             >

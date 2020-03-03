@@ -5,26 +5,23 @@
 import React from 'react';
 import App from './redux/component/App'
 
-import { createStore } from 'redux'; // 创建仓库
-import { Provider } from 'react-redux';
-import RootReducer from './redux/reducer/index'
+import { Provider } from 'react-redux'; // 提供器
+import configureStore from './redux/store/configureStore'; // return (middware enhance) store
 
 
-/**
- * dispatch
- * getState
- * replaceReducer
- * subscribe
- */
-const store = createStore(RootReducer); // 创建 store
+
+const store = configureStore();
+
 
 class ReduxApp extends React.Component {
 
     render() {
+        // store.subscribe(() => console.log(store.getState())) // 手动监听 store 中 state 的变化
         return <Provider store={store}>
             <App />
         </Provider>
     }
 }
+
 
 export default ReduxApp;
