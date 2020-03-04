@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './ReduxApp.js';
+import App from './HookApp.js';
 import * as serviceWorker from './serviceWorker';
 
 
