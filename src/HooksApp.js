@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // import Effecthooks from './hooks/Effecthooks.js';
 
@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 
 // import useTitle from './hooks/useTitle.js';
 
-// import useInput from './hooks/useInput.js';
+import useInput from './hooks/useInput.js'; // 开发中
 
 
 function HooksApp() {
@@ -17,34 +17,18 @@ function HooksApp() {
 
     // const status = useTitle('page1');
 
-    // const { error, ...inputProps } = useInput("");
+    const { error, ...inputProps } = useInput("");
 
-    const [count, setCount] = useState(0);
 
     return <div>
-        <p>{count}</p>
-        <button onClick={() => setCount(count => count + 1)}>+1</button>
+        <input type="text" {...inputProps} />
+        {
+            error ? error : "无错误信息"
+        }
+        <button onClick={() => {
+            console.log(inputProps.val)
+        }}>提交</button>
     </div>
-
-
-
-    // <div>
-    //     <input type="text" {...inputProps} />
-    //     {
-    //         error ? error : "无错误信息"
-    //     }
-    //     <button onClick={() => {
-    //         console.log(inputProps.val)
-    //     }}>提交</button>
-    // </div>
-
-
-
-
-    // <div>
-    //     <p>page1</p>
-    //     status:{status ? 'success' : 'error'}
-    // </div>
 
 }
 

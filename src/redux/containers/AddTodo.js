@@ -13,8 +13,8 @@ const AddTodo = props => {
                     if (!input.value.trim()) {
                         return
                     }
-                    props.dispatch(addTodo(input.value))
-                    // props.dispatch(addTodoThunk(input.value))
+                    // props.dispatch(addTodo(input.value))
+                    props.dispatch(addTodoThunk(input.value))
 
                     input.value = ''
                 }}

@@ -3,21 +3,21 @@ import { createStore, applyMiddleware, compose } from 'redux'; // 创建仓库 &
 import RootReducer from '../reducer/index' // reducer
 
 // 中间件
-import thunkMiddleware from 'redux-thunk'; // 允许我们 dispatch() 函数
+// import thunk from 'redux-thunk'; // 允许我们 dispatch() 函数
 import { createLogger } from 'redux-logger'; // 用来打印 action 日志
 import { composeWithDevTools } from 'redux-devtools-extension'; // redux-devtools
 
-// import { logger, myApplyMiddleware, thunk } from '../middleware'; // 自定义中间件
+import { loggerMiddleware, myApplyMiddleware, thunk } from '../middleware'; // 自定义中间件
 
 import monitorReducerEnhancer from '../enhances/monitorReducer'; // 计算出处理 reducer 的执行性能
 
-const loggerMiddleware = createLogger(); // 创建日志中间件
+// const loggerMiddleware = createLogger(); // 创建日志中间件
 
 /**
  * 创建并返回一个 store
  */
 function configureStore(initState) {
-    const middlewares = [loggerMiddleware, thunkMiddleware]; // 中间件数组
+    const middlewares = [loggerMiddleware, thunk]; // 中间件数组
 
 
     const middlewareEnhancer = applyMiddleware(...middlewares);
